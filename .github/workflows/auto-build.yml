@@ -17,7 +17,7 @@ jobs:
       - run: echo "⚡️ Starting build."
       - name: Run build script
         run: ./build.sh
-       - run: echo "✨ Finished build and pushing release."
+      - run: echo "✨ Finished build and pushing release."
       - name: Push changes to repository
         run: |           
           git add -A
