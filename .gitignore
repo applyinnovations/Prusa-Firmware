@@ -36,7 +36,6 @@ Firmware/Doc
 /Firmware/variants/1_75mm_MK1-RAMBo13a-E3Dv6full.h
 /Firmware/variants/1_75mm_MK1-RAMBo10a-E3Dv6full.h
 /lang/*.bin
-/lang/*.hex
 /lang/*.dat
 /lang/*.tmp
 /lang/*.out
