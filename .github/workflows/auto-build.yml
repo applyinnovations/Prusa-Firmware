@@ -20,6 +20,8 @@ jobs:
       - run: echo "✨ Finished build and pushing release."
       - name: Push changes to repository
         run: |           
+          git config --global user.email "bot@applyinnovations.com.au"
+          git config --global user.name "App/y Bot"
           git add -A
           git commit -m "auto-generated release"
           git push
