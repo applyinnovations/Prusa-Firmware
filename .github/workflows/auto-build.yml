@@ -1,0 +1,26 @@
+name: Auto Build
+on: [push]
+jobs:
+  Auto-Build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🐧 Building release on ${{ runner.os }}."
+      - run: echo "🔎 Checking out ${{ github.ref }} of ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ Installing pre-requisites."
+      - name: Install pre-requisites
+        run: |
+          sudo apt-get install default-jre
+          sudo apt-get install gawk
+      - run: echo "⚡️ Starting build."
+      - name: Run build script
+        run: ./build.sh
+       - run: echo "✨ Finished build and pushing release."
+      - name: Push changes to repository
+        run: |           
+          git add -A
+          git commit -m "auto-generated release"
+          git push
+      - run: echo "🎉 Build complete."
