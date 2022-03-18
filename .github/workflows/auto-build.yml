@@ -12,6 +12,7 @@ jobs:
       - run: echo "🖥️ Installing pre-requisites."
       - name: Install pre-requisites
         run: |
+          sudo apt update
           sudo apt-get install default-jre
           sudo apt-get install gawk
       - run: echo "⚡️ Starting build."
