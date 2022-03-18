@@ -5,21 +5,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🐧 Building release on ${{ runner.os }}."
-      - run: echo "🔎 Checking out ${{ github.ref }} of ${{ github.repository }}."
-      - name: Check out repository code
+      - name: "🔎 Checking out ${{ github.ref }} of ${{ github.repository }}."
         uses: actions/checkout@v2
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ Installing pre-requisites."
-      - name: Install pre-requisites
+      - name: Installing pre-requisites
         run: |
           sudo apt update
           sudo apt-get install default-jre
           sudo apt-get install gawk
-      - run: echo "⚡️ Starting build."
-      - name: Run build script
+      - name: Copying configuration file to main directory
+        run: cp ./Firmware/variants/1_75mm_MK3S-EINSy10a-E3Dv6full.h ./Firmware/Configuration_prusa.h
+      - name: "⚡️ Starting build."
         run: ./build.sh
-      - run: echo "✨ Finished build and pushing release."
-      - name: Push changes to repository
+      - name: "✨ Finished build and pushing release."
         run: |           
           git config --global user.email "bot@applyinnovations.com.au"
           git config --global user.name "App/y Bot"
