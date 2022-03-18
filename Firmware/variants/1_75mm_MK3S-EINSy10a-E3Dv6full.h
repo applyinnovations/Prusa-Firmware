@@ -594,6 +594,11 @@
 #else
 #define TEMP_SENSOR_0 5
 #endif
+
+/* Set temp sensor to the E3D PT1000 with 4.7k pullup */
+#undef TEMP_SENSOR_0
+#define TEMP_SENSOR_0 1047
+
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #if defined(E3D_PT100_BED_WITH_AMP)
